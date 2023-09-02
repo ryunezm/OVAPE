@@ -5,10 +5,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import ryunezm.ovape.User.models.Role;
-import ryunezm.ovape.User.models.User;
-import ryunezm.ovape.User.repositories.UserRepository;
+import ryunezm.ovape.user.models.Role;
+import ryunezm.ovape.user.models.User;
+import ryunezm.ovape.user.repositories.UserRepository;
 import ryunezm.ovape.config.JwtService;
+import ryunezm.ovape.exceptions.EmailAlreadyExistsException;
 
 @Service
 @RequiredArgsConstructor
@@ -20,6 +21,11 @@ public class AuthenticationService {
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
+
+        if (repository.existsByEmail(request.getEmail())) {
+            throw new EmailAlreadyExistsException("This email is already register");
+        }
+
         var user = User
                 .builder()
                 .first_name(request.getFirst_name())
@@ -30,6 +36,7 @@ public class AuthenticationService {
                 .build();
         repository.save(user);
         var jwtToken = jwtService.generateToken(user);
+
         return AuthenticationResponse
                 .builder()
                 .token(jwtToken)

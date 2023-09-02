@@ -1,4 +1,4 @@
-package ryunezm.ovape.User.models;
+package ryunezm.ovape.user.models;
 
 public enum Role {
     USER, ADMIN

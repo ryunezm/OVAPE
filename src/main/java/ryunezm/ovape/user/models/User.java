@@ -1,4 +1,4 @@
-package ryunezm.ovape.User.models;
+package ryunezm.ovape.user.models;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -22,8 +22,11 @@ public class User implements UserDetails {
     @Id
     @GeneratedValue
     private Integer id;
+    @Column(nullable = false)
     private String first_name;
+    @Column(nullable = false)
     private String last_name;
+    @Column(nullable = false, unique = true)
     private String email;
     private String password;
     @Enumerated(EnumType.STRING)
