@@ -10,8 +10,14 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  login(credentials: any): Observable<any>{
-    return this.http.post(`${this.baseUrl}/login`, credentials);
+  login(username: string, password: string){
+    const body: {username: string, password: string} = {
+      username: '',
+      password: ''
+    };
+    body.username = username;
+    body.password = password;
+    return this.http.post(`${this.baseUrl}/login`, body);
   }
 
   register(userData: any): Observable<any> {

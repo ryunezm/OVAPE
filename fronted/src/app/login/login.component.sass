@@ -1,0 +1,53 @@
+// Variables
+$primary-color: #007bff
+$border-radius: 5px
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+
+// Mixins
+@mixin flexbox($direction, $align-items: center, $justify-content: center)
+  display: flex
+  flex-direction: $direction
+  align-items: $align-items
+  justify-content: $justify-content
+
+// Login container
+.login-container
+  @include flexbox(column)
+  text-align: center
+  margin: 5% 30%
+  width: 30vmax
+  max-width: 30vmax
+  max-height: 15vmax
+  padding: 5vmax
+  border: 1px solid #ccc
+  border-radius: $border-radius
+  background-color: #fff
+  box-shadow: $box-shadow
+
+// Form
+form
+  @include flexbox(column)
+
+// Form field
+mat-form-field
+  width: 20vmax
+  height: 6vmax
+  margin-bottom: 1vmax
+
+// Button
+button
+  width: 100%
+  margin-top: 10px
+
+// Login and register links
+.login-link,
+.register-link
+  text-decoration: none
+  color: $primary-color
+  cursor: pointer
+  margin-top: 10px
+  display: flex
+
+// Horizontal layout of login and register links
+.link-container
+  @include flexbox(row, center, space-between)
