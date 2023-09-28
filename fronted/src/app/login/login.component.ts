@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 
 @Component({
@@ -6,6 +6,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.sass']
 })
+
 export class LoginComponent {
 
   loginForm: FormGroup;
@@ -14,19 +15,16 @@ export class LoginComponent {
 
   constructor(private formBuilder: FormBuilder) {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
-      password: ['', Validators.required]
+      username: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(8)]]
     });
   }
 
   onSubmit() {
     if (this.loginForm.valid) {
 
-      const username = this.loginForm.value._username;
-      const password = this.loginForm.value._password;
-      // Aquí puedes agregar la lógica para autenticar al usuario
-      // Realiza la autenticación aquí y maneja el flujo de acuerdo a la autenticación exitosa o fallida
+      const username = this.loginForm.value.username;
+      const password = this.loginForm.value.password;
     }
   }
-
 }
