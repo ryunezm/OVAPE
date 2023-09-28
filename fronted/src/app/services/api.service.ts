@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable, of, EMPTY } from "rxjs";
-import { UserData } from "./user-data.interface";
+import { User } from "./user.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -11,18 +11,22 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  login(username: string, password: string){
+  login(username: string, password: string): Observable<User>{
     const body: {username: string, password: string} = {
       username,
       password
     };
-    //body.username = username;
-    //body.password = password;
-    return this.http.post(`${this.baseUrl}/authenticate`, body);
+    return this.http.post<User>(`${this.baseUrl}/authenticate`, body);
   }
 
-  register(userData: UserData): Observable<any> {
-    return this.http.post(`${this.baseUrl}/register`, userData);
+  register(first_name: string, last_name: string, email:string, password:string): Observable<any>{
+    const body = {
+      first_name,
+      last_name,
+      email,
+      password,
+    };
+    return this.http.post<any>(`${this.baseUrl}/register`, body);
   }
 
   getJwt(): Observable<string>{
