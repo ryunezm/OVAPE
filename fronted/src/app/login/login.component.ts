@@ -1,5 +1,5 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from "../services/api.service";
 import { User } from '../services/user.interface';
 import { Router } from '@angular/router';
@@ -24,16 +24,19 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log('onSubmit() called');
     if (this.loginForm.valid) {
       const username = this.loginForm.value.username;
       const password = this.loginForm.value.password;
 
       this.apiService.login(username, password).subscribe((user: User) => {
         this.router.navigateByUrl('/home').then(r => '');
+
+      }, (error) => {
+        console.log('Error logging in:', error);
       });
     }
   }
 
   ngOnInit(): void {}
-
 }
