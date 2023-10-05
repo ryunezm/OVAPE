@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('onSubmit() called');
     if (this.loginForm.valid) {
       const username = this.loginForm.value.username;
       const password = this.loginForm.value.password;
@@ -40,7 +39,7 @@ export class LoginComponent implements OnInit {
             console.log('Error logging in:', e);
           },
           complete(){
-            console.log("completed");
+            console.log("Completed the log in");
           },
         })
         ;
