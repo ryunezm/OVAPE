@@ -1,0 +1,37 @@
+// Variables
+$primary-color: #007bff
+$border-radius: 5px
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+
+// Mixins
+@mixin flexbox($direction, $align-items: center, $justify-content: center)
+  display: flex
+  flex-direction: $direction
+  align-items: $align-items
+  justify-content: $justify-content
+
+// Contact us container
+.contact-container
+  @include flexbox(column)
+  margin: 5% 30%
+  width: 30vmax
+  font-size: 16px
+  max-width: 30vmax
+  max-height: 15vmax
+  height: 15vmax
+  padding: 5vmax
+  border: 1px solid #ccc
+  border-radius: $border-radius
+  background-color: #fff
+  box-shadow: $box-shadow
+
+h2
+  font-size: 2vmax
+  line-height: 1vmax
+  margin: 0.8vmax
+
+p
+  text-align: justify
+  font-size: 1vmax
+  line-height: 1vmax
+  margin: 0.2vmax

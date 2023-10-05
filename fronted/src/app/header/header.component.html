@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+  <mat-icon>school</mat-icon>
+  <span>OVAPE</span>
+  <button mat-button routerLink="/home">Home</button>
+  <span class="spacer"></span>
+  <button mat-button routerLink="/aboutus">About us</button>
+  <button mat-button routerLink="/contact">Contact</button>
+  <button mat-button [matMenuTriggerFor]="menu">Sign in</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Profile</button>
+    <button mat-menu-item>Sign out</button>
+  </mat-menu>
+</mat-toolbar>
