@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {ApiService} from "../services/api.service";
-import {User} from '../services/user.interface';
+import {AuthService} from "../../services/auth.service";
+import {User} from '../../services/user.interface';
 import {Router} from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   password: string = '';
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private apiService: ApiService, private router: Router,) {
+  constructor(private formBuilder: FormBuilder, private apiService: AuthService, private router: Router,) {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(8)]]
