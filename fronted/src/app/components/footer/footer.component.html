@@ -1,5 +1,23 @@
 <footer class="mat-footer">
-  <div class="container">
-    <p class="text-right">&copy; {{ currentYear }} ryunezm </p>
+
+  <div class="side-left">
+    <button mat-button routerLink="/aboutus">About us</button>
+
+    <div class="contact-links">
+      <button mat-button routerLink="/contact">Contact us</button>
+      <div class="contact-links-logos">
+        <a href="mailto:ryunezm@unicartagena.edu.co"> <img src="assets/logos/incoming_envelope_black_1F4E8.svg"></a>
+        <a href="https://www.linkedin.com/in/ryunezm/"> <img src="assets/logos/In-Blue.svg"> </a>
+        <a alt="github.com/ryunezm" href="https://github.com/ryunezm"> <img src="assets/logos/github-mark.svg"> </a>
+      </div>
+
+    </div>
+
+
   </div>
+
+  <div class="side-right">
+    <p>&copy; {{ currentYear }} ryunezm </p>
+  </div>
+
 </footer>

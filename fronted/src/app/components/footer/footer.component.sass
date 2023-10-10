@@ -1,15 +1,57 @@
 $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+$border-radius: 5px
 
 .mat-footer
-  height: 1vmax
+  box-shadow: $box-shadow
   background-color: darkgray
   color: #3f51b5
-  padding: 2vmax
-  box-shadow: $box-shadow
+  height: 4vmax
+  display: flex
+  justify-content: space-between
+  align-items: center
+  border-radius: $border-radius
+  //font-family: "Source Sans 3"
 
-.mat-footer p
+.side-right, .side-left
+  margin-left: 1vmax
+  margin-right: 1vmax
+
+.side-left
+  display: flex
+  flex-direction: row
+  align-items: center
+  //border: 1px solid gray
+  gap: 2.5vmax
+
+.contact-links
+  display: flex
+  flex-direction: row
+  align-items: center
+  gap: 0
+
+.contact-links-logos
+  display: flex
+  flex-direction: row
+  align-items: center
+  gap: 1vmax
+  justify-content: center
+
+.side-left button
+  height: 3vmax
+  width: 8vmax
+
+p
   font-size: 1vmax
   margin: 0
+  max-font-size: 2vmax
+  font-family: "Source Sans 3"
+  white-space: nowrap
 
-.text-right
-  text-align: right
+button
+  font-family: "Source Sans 3 ExtraBold"
+  white-space: nowrap
+  margin: 0
+
+img
+  margin-top: 0.5vmax
+  height: 2vmax
