@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Observable, of, EMPTY } from "rxjs";
+import {Observable, of, EMPTY, map} from "rxjs";
 import { User } from "./user.interface";
 
 @Injectable({
@@ -36,5 +36,9 @@ export class AuthService {
     } else {
       return EMPTY;
     }
+  }
+
+  isJwtAvailable(): Observable<boolean>{
+    return this.getJwt().pipe(map(token=>!!token));
   }
 }

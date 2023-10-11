@@ -1,3 +1,6 @@
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+$border-radius: 5px
+
 // font
 @import url('https://fonts.googleapis.com/css?family=Source+Sans+3')
 *
@@ -17,7 +20,14 @@
 .border
   height: 4vmax
   max-height: 4vmax
+
 // router
 .router-outlet-container
+  background-color: #f0f0f0
+  box-shadow: $box-shadow
+  border-radius: $border-radius
+  margin-top: 1vmax
+  margin-bottom: 1vmax
   height: 35vmax
   overflow: auto
+  padding: 1vmax
