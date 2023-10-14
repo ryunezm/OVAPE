@@ -14,8 +14,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {HeaderComponent} from './components/base/header/header.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
-import {ContactComponent} from './components/base/contact/contact.component';
-import {AboutusComponent} from './components/base/aboutus/aboutus.component';
+import {ContactComponent} from './components/information/contact/contact.component';
+import {AboutusComponent} from './components/information/aboutus/aboutus.component';
 import {MatMenuModule} from "@angular/material/menu";
 import {HttpClientModule} from "@angular/common/http";
 import {MatSelectModule} from "@angular/material/select";
@@ -25,6 +25,8 @@ import {MatCardModule} from "@angular/material/card";
 import {MatListModule} from "@angular/material/list";
 import {MatStepperModule} from "@angular/material/stepper";
 import {NgOptimizedImage} from "@angular/common";
+import { CardComponent } from './components/base/card/card.component';
+import {MatTooltipModule} from "@angular/material/tooltip";
 
 @NgModule({
   declarations: [
@@ -36,27 +38,29 @@ import {NgOptimizedImage} from "@angular/common";
     HeaderComponent,
     ContactComponent,
     AboutusComponent,
+    CardComponent,
   ],
-  imports: [
-    MatButtonModule,
-    MatToolbarModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    FormsModule,
-    MatIconModule,
-    MatInputModule,
-    MatMenuModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    MatSelectModule,
-    MatRadioModule,
-    MatSnackBarModule,
-    MatCardModule,
-    MatListModule,
-    MatStepperModule,
-    NgOptimizedImage
-  ],
+    imports: [
+        MatButtonModule,
+        MatToolbarModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        FormsModule,
+        MatIconModule,
+        MatInputModule,
+        MatMenuModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatSelectModule,
+        MatRadioModule,
+        MatSnackBarModule,
+        MatCardModule,
+        MatListModule,
+        MatStepperModule,
+        NgOptimizedImage,
+        MatTooltipModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

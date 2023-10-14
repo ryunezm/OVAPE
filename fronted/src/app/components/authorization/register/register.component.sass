@@ -24,4 +24,24 @@ $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
   border-radius: $border-radius
   background-color: #fff
   box-shadow: $box-shadow
-  overflow: auto
+  overflow: hidden
+
+#firstFormGroup
+  @include flexbox(row)
+  border: 0 solid yellow
+  align-content: space-around
+
+mat-vertical-stepper
+  padding-top: 30vh
+  border: 0 solid green
+  transform: scale(1)
+  overflow: hidden
+  height: 80vh
+  width: 50vw
+  font-size: 2vmax
+
+ng-template, mat-label, mat-form-field, input, button
+  border: 0 solid black
+
+ng-template
+  font-family: "Lucida Console",monospace

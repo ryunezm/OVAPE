@@ -1,15 +1,20 @@
-<div class="register-container">
+<app-card>
   <form (ngSubmit)="onSubmit()">
-    <mat-vertical-stepper [linear]="isLinear" #stepper>
+    <mat-vertical-stepper #stepper [linear]="isLinear">
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
-          <ng-template matStepLabel>Fill out your personal information</ng-template>
-          <mat-form-field>
-            <input matInput placeholder="First name" formControlName="first_name" required>
-          </mat-form-field>
-          <mat-form-field>
-            <input matInput placeholder="Last name" formControlName="last_name" required>
-          </mat-form-field>
+          <div id="firstFormGroup">
+            <ng-template matStepLabel>Fill out your personal information</ng-template>
+            <mat-form-field>
+              <input formControlName="first_name"
+                     [matTooltip]="firstFormGroup?.get('first_name')?.hasError('pattern') ? 'Invalid character(s)' : ''"
+                     placeholder="First name"
+                     matInput>
+            </mat-form-field>
+            <mat-form-field>
+              <input formControlName="last_name" matInput placeholder="Last name">
+            </mat-form-field>
+          </div>
           <div>
             <button mat-button matStepperNext>Next</button>
           </div>
@@ -19,7 +24,7 @@
         <form [formGroup]="secondFormGroup">
           <ng-template matStepLabel>Fill out your email address</ng-template>
           <mat-form-field>
-            <input matInput placeholder="Email address" formControlName="email" required>
+            <input formControlName="email" matInput placeholder="Email address" required>
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -30,9 +35,9 @@
       <mat-step [stepControl]="thirdFormGroup">
         <form [formGroup]="thirdFormGroup">
           <ng-template matStepLabel>Fill out information about the semester in which you took the class</ng-template>
-          <mat-form-field>
+          <mat-form-field appearance="fill">
             <mat-label>Year</mat-label>
-            <mat-select [(ngModel)]="selectedYear">
+            <mat-select [formControl]="yearControl">
               <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
             </mat-select>
           </mat-form-field>
@@ -53,7 +58,7 @@
         <form [formGroup]="fourthFormGroup">
           <ng-template matStepLabel>Fill out your password</ng-template>
           <mat-form-field>
-            <input matInput placeholder="Password" formControlName="password" required type="password">
+            <input formControlName="password" matInput placeholder="Password" required type="password">
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -67,4 +72,4 @@
       </mat-step>
     </mat-vertical-stepper>
   </form>
-</div>
+</app-card>

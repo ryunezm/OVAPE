@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../services/auth.service";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -15,9 +15,10 @@ export class RegisterComponent implements OnInit {
   first_name: string = '';
   last_name: string = '';
   email: string = '';
+  yearControl: FormControl = new FormControl();
   years: number[] = [];
   currentYear: number = new Date().getFullYear();
-  selectedYear: number = 2008;
+  selectedYear: number = this.currentYear;
   semester: number = 1;
   password: string = '';
   firstFormGroup: FormGroup;
@@ -27,17 +28,17 @@ export class RegisterComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router, private snackBar: MatSnackBar) {
-    for (let year = 2008; year <= this.currentYear; year++) {
+    for (let year = this.currentYear; year >= 2009; year--) {
       this.years.push(year);
     }
 
     this.firstFormGroup = this.formBuilder.group({
-      first_name: ['', [Validators.required, Validators.minLength(3)]],
-      last_name: ['', [Validators.required, Validators.minLength(3)]],
+      first_name: ['', [Validators.required, Validators.pattern(/^[A-Za-zÁáÉéÍíÓóÚúÜüÑñÇç\s'-]+$/), Validators.minLength(3)]],
+      last_name: ['', [Validators.required, Validators.pattern(/^[A-Za-zÁáÉéÍíÓóÚúÜüÑñÇç\s'-]+$/), Validators.minLength(3)]],
     })
 
     this.secondFormGroup = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.minLength(5)]]
+      email: ['', [Validators.required, Validators.pattern(/^[A-Za-z0-9._%+-]+@unicartagena.edu.co$/)]]
     })
 
     this.thirdFormGroup = this.formBuilder.group({
@@ -50,16 +51,11 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-
+  //TODO
   ngOnInit(): void {
-    // this.firstFormGroup = this.formBuilder.group({
-    //   firstCtrl: ['', Validators.required]
-    // });
-    // this.secondFormGroup = this.formBuilder.group({
-    //   secondCtrl: ['', Validators.required]
-    // });
   }
 
+  //TODO
   onSubmit() {
     if (this.firstFormGroup.valid && this.secondFormGroup.valid && this.thirdFormGroup.valid && this.fourthFormGroup.valid) {
       const first_name = this.firstFormGroup.value.first_name;
