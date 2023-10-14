@@ -21,8 +21,9 @@ public class RegisterRequest {
     @Email
     @ValidEmail
     private String email;
-
+    private int selectedYear;
+    private int semester;
     @NotBlank
-    @Size(min = 8)
+    @Size(min = 6)
     private String password;
 }

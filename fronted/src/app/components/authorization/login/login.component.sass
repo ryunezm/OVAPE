@@ -13,13 +13,14 @@ $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 // Login container
 .login-container
   @include flexbox(column)
+  font-size: 1.2vmax
   text-align: center
-  margin: 5% 30%
   width: 30vmax
+  min-width: 30vmax
   max-width: 30vmax
-  max-height: 15vmax
+  min-height: 18vmax
+  max-height: 18vmax
   padding: 5vmax
-  border: 1px solid #ccc
   border-radius: $border-radius
   background-color: #fff
   box-shadow: $box-shadow
@@ -30,14 +31,18 @@ form
 
 // Form field
 mat-form-field
-  width: 20vmax
-  height: 6vmax
+  width: 15vmax
+  height: 4vmax
   margin-bottom: 1vmax
 
 // Button
 button
   width: 100%
   margin-top: 10px
+  font-size: 1.2vmax
+
+mat-label
+  font-size: 1.2vmax
 
 // Login and register links
 .login-link,

@@ -1,6 +1,12 @@
 $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
 $border-radius: 5px
 
+@mixin flexbox($direction, $align-items: center, $justify-content: center)
+  display: flex
+  flex-direction: $direction
+  align-items: $align-items
+  justify-content: $justify-content
+
 // header
 .app-header
   position: sticky
@@ -19,6 +25,7 @@ $border-radius: 5px
 
 // router
 .router-outlet-container
+  @include flexbox(column)
   background-color: #f0f0f0
   box-shadow: $box-shadow
   border-radius: $border-radius
@@ -26,4 +33,5 @@ $border-radius: 5px
   margin-bottom: 1vmax
   height: 35vmax
   overflow: auto
-  padding: 1vmax
+
+

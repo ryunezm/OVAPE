@@ -1,0 +1,27 @@
+// Variables
+$primary-color: #007bff
+$border-radius: 5px
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+
+// Mixins
+@mixin flexbox($direction, $align-items: center, $justify-content: center)
+  display: flex
+  flex-direction: $direction
+  align-items: $align-items
+  justify-content: $justify-content
+
+// Register container
+.register-container
+  @include flexbox(column)
+  font-size: 1.2vmax
+  text-align: center
+  width: 30vmax
+  min-width: 30vmax
+  max-width: 30vmax
+  min-height: 18vmax
+  max-height: 15vmax
+  padding: 5vmax
+  border-radius: $border-radius
+  background-color: #fff
+  box-shadow: $box-shadow
+  overflow: auto

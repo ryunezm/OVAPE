@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {AuthService} from "../../services/auth.service";
-import {User} from '../../services/user.interface';
+import {AuthService} from "../../../services/auth.service";
+import {User} from '../../../services/user.interface';
 import {Router} from '@angular/router';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   password: string = '';
   loginForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private apiService: AuthService, private router: Router,) {
+  constructor(private formBuilder: FormBuilder, private authService: AuthService, private router: Router,) {
     this.loginForm = this.formBuilder.group({
       username: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(8)]]
@@ -28,7 +28,7 @@ export class LoginComponent implements OnInit {
       const username = this.loginForm.value.username;
       const password = this.loginForm.value.password;
 
-      this.apiService
+      this.authService
         .login(username, password)
         .subscribe({
           next: (user: User) =>{

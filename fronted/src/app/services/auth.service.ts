@@ -19,11 +19,13 @@ export class AuthService {
     return this.http.post<User>(`${this.baseUrl}/login`, body);
   }
 
-  register(first_name: string, last_name: string, email:string, password:string): Observable<any>{
+  register(first_name: string, last_name: string, email:string, selectedYear: number, semester: number, password:string): Observable<any>{
     const body = {
       first_name,
       last_name,
       email,
+      selectedYear,
+      semester,
       password,
     };
     return this.http.post<any>(`${this.baseUrl}/register`, body);
