@@ -10,41 +10,43 @@ $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
   align-items: $align-items
   justify-content: $justify-content
 
-// Login container
-.login-container
-  @include flexbox(column)
-  font-size: 1.2vmax
-  text-align: center
-  width: 30vmax
-  min-width: 30vmax
-  max-width: 30vmax
-  min-height: 18vmax
-  max-height: 18vmax
-  padding: 5vmax
+#title
+  position: absolute
+  top: 21%
+  left: 25%
+  font-size: 4vh
+
+#line
+  position: relative
+  top: -5%
+  border: 1px solid #cccccc
+  width: 99%
+
+#login-form
+  position: relative
+  top: 0
+  border: 0 solid green
   border-radius: $border-radius
-  background-color: #fff
-  box-shadow: $box-shadow
-
-// Form
-form
+  height: 40vh
   @include flexbox(column)
+  justify-content: space-around
 
-// Form field
 mat-form-field
-  width: 15vmax
-  height: 4vmax
-  margin-bottom: 1vmax
+  width: 20vw
+  height: 8vh
+  margin-bottom: 3vh
 
-// Button
+#username, #password
+  font-size: 2vh
+
 button
   width: 100%
-  margin-top: 10px
+  margin-top: 2vh
   font-size: 1.2vmax
 
 mat-label
-  font-size: 1.2vmax
+  font-size: 1vmax
 
-// Login and register links
 .login-link,
 .register-link
   text-decoration: none

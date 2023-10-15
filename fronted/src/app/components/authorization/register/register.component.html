@@ -1,18 +1,23 @@
 <app-card>
-  <form (ngSubmit)="onSubmit()">
-    <mat-vertical-stepper #stepper [linear]="isLinear">
+  <h2 id="title">REGISTER</h2>
+  <div id="line"></div>
+  <form (ngSubmit)="onSubmit()" id="register-form">
+    <mat-vertical-stepper [linear]="isLinear">
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
           <div id="firstFormGroup">
             <ng-template matStepLabel>Fill out your personal information</ng-template>
             <mat-form-field>
               <input formControlName="first_name"
-                     [matTooltip]="firstFormGroup?.get('first_name')?.hasError('pattern') ? 'Invalid character(s)' : ''"
+                     [matTooltip]="firstFormGroup.get('first_name')?.hasError('pattern') ? 'Invalid character(s)' : ''"
                      placeholder="First name"
                      matInput>
             </mat-form-field>
             <mat-form-field>
-              <input formControlName="last_name" matInput placeholder="Last name">
+              <input formControlName="last_name"
+                     [matTooltip]="firstFormGroup.get('last_name')?.hasError('pattern') ? 'Invalid character(s)' : ''"
+                     placeholder="Last name"
+                     matInput>
             </mat-form-field>
           </div>
           <div>

@@ -10,38 +10,33 @@ $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
   align-items: $align-items
   justify-content: $justify-content
 
-// Register container
-.register-container
-  @include flexbox(column)
-  font-size: 1.2vmax
-  text-align: center
-  width: 30vmax
-  min-width: 30vmax
-  max-width: 30vmax
-  min-height: 18vmax
-  max-height: 15vmax
-  padding: 5vmax
+#title
+  position: absolute
+  top: 21%
+  left: 25%
+  font-size: 4vh
+
+#line
+  position: relative
+  top: -5%
+  border: 1px solid #cccccc
+  width: 99%
+
+#register-form
+  position: relative
+  top: 0
+  border: 0 solid pink
   border-radius: $border-radius
-  background-color: #fff
-  box-shadow: $box-shadow
-  overflow: hidden
+  overflow: auto
+  height: 40vh
+
+mat-vertical-stepper
+  border: 0 solid green
+  width: 50vw
+  font-size: 2vmax
+  border-radius: $border-radius
 
 #firstFormGroup
   @include flexbox(row)
   border: 0 solid yellow
   align-content: space-around
-
-mat-vertical-stepper
-  padding-top: 30vh
-  border: 0 solid green
-  transform: scale(1)
-  overflow: hidden
-  height: 80vh
-  width: 50vw
-  font-size: 2vmax
-
-ng-template, mat-label, mat-form-field, input, button
-  border: 0 solid black
-
-ng-template
-  font-family: "Lucida Console",monospace

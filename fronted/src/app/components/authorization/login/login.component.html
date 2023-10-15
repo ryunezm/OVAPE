@@ -1,5 +1,7 @@
 <app-card>
-  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm">
+  <h2 id="title">LOG IN</h2>
+  <div id="line"></div>
+  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" id="login-form">
     <!--    Username field-->
     <mat-form-field appearance="outline">
       <mat-label for="username">Username</mat-label>
@@ -11,7 +13,7 @@
       <input formControlName="password" id="password" matInput name="password" required type="password">
     </mat-form-field>
     <!--    Login button-->
-    <button mat-raised-button type="submit">Log in</button>
+    <button mat-button type="submit">Log in</button>
     <div class="link-container">
       <a routerLink="/register" class="register-link">Register</a>
     </div>
