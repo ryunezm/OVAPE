@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {AbstractControl, FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../../services/auth.service";
 import {Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
@@ -15,11 +15,11 @@ export class RegisterComponent implements OnInit {
   first_name: string = '';
   last_name: string = '';
   email: string = '';
-  yearControl: FormControl = new FormControl();
+  //yearControl: FormControl = new FormControl();
   years: number[] = [];
   currentYear: number = new Date().getFullYear();
   selectedYear: number = this.currentYear;
-  semester: number = 1;
+  semester: number = 0;
   password: string = '';
   firstFormGroup: FormGroup;
   secondFormGroup: FormGroup;
@@ -42,7 +42,7 @@ export class RegisterComponent implements OnInit {
     })
 
     this.thirdFormGroup = this.formBuilder.group({
-      selectedYear: ['', [Validators.required, Validators.min(2008), Validators.max(this.currentYear)]],
+      yearControl: ['', [Validators.required, Validators.min(2008), Validators.max(this.currentYear)]],
       semester: ['', [Validators.required, Validators.min(1), Validators.max(2)]],
     })
 
@@ -61,12 +61,12 @@ export class RegisterComponent implements OnInit {
       const first_name = this.firstFormGroup.value.first_name;
       const last_name = this.firstFormGroup.value.last_name;
       const email = this.secondFormGroup.value.email;
-      const selectedYear = this.thirdFormGroup.value.selectedYear;
+      const yearControl = this.thirdFormGroup.value.yearControl;
       const semester = this.thirdFormGroup.value.semester;
       const password = this.fourthFormGroup.value.password;
 
       this.authService
-        .register(first_name, last_name, email, selectedYear, semester, password)
+        .register(first_name, last_name, email, yearControl, semester, password)
         .subscribe({
           next: () => {
             this.router.navigateByUrl('/home').then(() => '/home');
