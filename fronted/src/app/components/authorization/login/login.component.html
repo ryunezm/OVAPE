@@ -2,20 +2,26 @@
   <h2 id="title">LOG IN</h2>
   <div id="line"></div>
   <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" id="login-form">
-    <!--    Username field-->
+
+    <!--Username field-->
     <mat-form-field appearance="outline">
       <mat-label for="username">Username</mat-label>
       <input formControlName="username" id="username" matInput name="username" required type="text">
     </mat-form-field>
-    <!--    Password field-->
+
+    <!--Password field-->
     <mat-form-field appearance="outline">
       <mat-label for="password">Password</mat-label>
       <input formControlName="password" id="password" matInput name="password" required type="password">
     </mat-form-field>
-    <!--    Login button-->
-    <button mat-flat-button color="primary" type="submit">Log in</button>
+
+    <!--Login button-->
+    <button color="primary" mat-flat-button type="submit">Log in</button>
+
+    <!--Forgot and register-->
     <div class="link-container">
-      <a routerLink="/register" class="register-link">Register</a>
+      <a mat-button> Forgot password? </a>
+      <a class="register-link" mat-button routerLink="/register">Register</a>
     </div>
   </form>
 </app-card>

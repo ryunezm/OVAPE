@@ -24,40 +24,41 @@ $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
   width: 99%
 
 #login-form
+  @include flexbox(column)
+  justify-content: space-between
   position: relative
   top: 0
   border: 0 solid green
   border-radius: $border-radius
   height: 40vh
-  @include flexbox(column)
-  justify-content: space-around
 
 mat-form-field
   width: 20vw
-  height: 8vh
-  margin-bottom: 3vh
+  min-height: 8vh
 
 #username, #password
   font-size: 2.5vh
 
 button[mat-flat-button]
   width: 100%
-  height: 8vh
+  min-height: 15%
   margin-top: 2vh
   font-size: 2.5vh
-
 
 mat-label
   font-size: 1vmax
 
-.login-link,
+// Horizontal layout of login and register links
+.link-container
+  @include flexbox(row, center, space-between)
+  width: 92%
+
 .register-link
   text-decoration: none
   color: $primary-color
   cursor: pointer
-  margin-top: 10px
-  display: flex
 
-// Horizontal layout of login and register links
-.link-container
-  @include flexbox(row, center, space-between)
+a[mat-button]
+  border: 1px #cccccc dashed
+  margin-top: 2vh
+  font-size: 2.5vh
