@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { authGuard } from './services/auth.guard'
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from "./components/authorization/login/login.component";
 import { RegisterComponent } from "./components/authorization/register/register.component";
@@ -9,10 +10,10 @@ import { ContactComponent } from "./components/information/contact/contact.compo
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
-  { path: 'home', component: HomeComponent},
+  { path: 'home', component: HomeComponent, canActivate: [authGuard]},
   { path: 'contact', component: ContactComponent},
   { path: 'aboutus', component: AboutusComponent},
-  { path: '', redirectTo:'/login', pathMatch: 'full'}
+  { path: '', redirectTo:'/home', pathMatch: 'full'}
 ];
 
 @NgModule({
