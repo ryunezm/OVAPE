@@ -8,10 +8,10 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {LoginComponent} from './components/authorization/login/login.component';
 import {RegisterComponent} from './components/authorization/register/register.component';
 import {HomeComponent} from './components/base/home/home.component';
-import {FooterComponent} from './components/base/footer/footer.component';
+import {FooterComponent} from './components/root/footer/footer.component';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {HeaderComponent} from './components/base/header/header.component';
+import {HeaderComponent} from './components/root/header/header.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MatInputModule} from "@angular/material/input";
 import {ContactComponent} from './components/information/contact/contact.component';
@@ -27,6 +27,7 @@ import {MatStepperModule} from "@angular/material/stepper";
 import {NgOptimizedImage} from "@angular/common";
 import { CardComponent } from './components/base/card/card.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
+import { LeftpanelComponent } from './components/base/leftpanel/leftpanel.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import {MatTooltipModule} from "@angular/material/tooltip";
     ContactComponent,
     AboutusComponent,
     CardComponent,
+    LeftpanelComponent,
   ],
     imports: [
         MatButtonModule,
