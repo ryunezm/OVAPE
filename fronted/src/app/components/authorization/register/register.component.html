@@ -63,7 +63,8 @@
         <form [formGroup]="fourthFormGroup">
           <ng-template matStepLabel>Fill out your password</ng-template>
           <mat-form-field>
-            <input formControlName="password" matInput placeholder="Password" type="password">
+            <input formControlName="password" matInput placeholder="Password" type="password"
+                   [matTooltip]="passwordTooltip()" matTooltipPosition="above">
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>

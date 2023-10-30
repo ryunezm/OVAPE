@@ -1,10 +1,32 @@
+// Variables
+$primary-color: #007bff
+$border-radius: 5px
+$box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+
+// Mixins
+@mixin flexbox($direction, $align-items: center, $justify-content: center)
+  display: flex
+  flex-direction: $direction
+  align-items: $align-items
+  justify-content: $justify-content
+
+#title
+  position: absolute
+  top: 21%
+  left: 25%
+  font-size: 4vh
+  font-weight: bold
+
+#line
+  position: relative
+  top: -5%
+  border: 1px solid #cccccc
+  width: 99%
+
 h2
   font-size: 2vmax
-  line-height: 1vmax
-  margin: 0.8vmax
-
-h3
-  font-size: 1.5vmax
+  min-font-size: 2vmax
+  max-font-size: 3vmax
   line-height: 1vmax
   margin: 0.8vmax
 

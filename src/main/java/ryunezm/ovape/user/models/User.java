@@ -28,8 +28,10 @@ public class User implements UserDetails {
     private String last_name;
     @Column(nullable = false, unique = true)
     private String email;
-    private Integer selectedYear;
-    private Integer semester;
+    @Column(nullable = false)
+    private int selectedYear;
+    @Column(nullable = false)
+    private int semester;
     private String password;
     @Enumerated(EnumType.STRING)
     private Role role;

@@ -23,6 +23,7 @@
     "@babel/plugin-transform-async-generator-functions": "^7.23.2",
     "@babel/plugin-transform-unicode-property-regex": "^7.22.5",
     "rxjs": "~7.8.0",
+    "sass": "^1.69.4",
     "ts-evaluator": "^1.2.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.13.0"

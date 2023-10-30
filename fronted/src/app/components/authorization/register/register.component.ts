@@ -11,7 +11,7 @@ import {MatSnackBar} from "@angular/material/snack-bar";
 })
 export class RegisterComponent implements OnInit {
 
-  isLinear = true;
+  isLinear = false;
   first_name: string = '';
   last_name: string = '';
   email: string = '';
@@ -47,16 +47,24 @@ export class RegisterComponent implements OnInit {
     })
 
     this.fourthFormGroup = this.formBuilder.group({
-      password: ['', [Validators.required, Validators.minLength(8), this.passwordStrengthValidator]]
+      password: ['', [Validators.required, Validators.minLength(8)]]
+      //password: ['', [Validators.required, this.passwordStrengthValidator.bind(this)]]
     })
   }
 
-  //TODO
   ngOnInit(): void {
+    // Check token
+    const token = localStorage.getItem('token');
+    if (token) {
+      alert('You have already logged in')
+      // -> to /home
+      this.router.navigateByUrl('/home').then(() => '/home');
+    }
   }
 
   //TODO
   onSubmit() {
+    console.log('onSubmit called');
     if (this.firstFormGroup.valid && this.secondFormGroup.valid && this.thirdFormGroup.valid && this.fourthFormGroup.valid) {
       const first_name = this.firstFormGroup.value.first_name;
       const last_name = this.firstFormGroup.value.last_name;
@@ -87,12 +95,31 @@ export class RegisterComponent implements OnInit {
 
   private passwordStrengthValidator(control: AbstractControl) {
     const password = control.value;
-    if (password) {
-      const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-      if (!strongPasswordRegex.test(password)) {
-        return {'passwordStrength': true};
-      }
+    if (!password) {
+      return null; // No error if the field is empty.
     }
-    return null;
+
+    const strongPasswordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+    if (!strongPasswordRegex.test(password)) {
+      return { 'passwordStrength': true };
+    }
+
+    return null; // No error, the password meets the requirements.
+  }
+
+  passwordTooltip(): string {
+    const passwordControl = this.fourthFormGroup.get('password');
+
+    // @ts-ignore
+    if (passwordControl.hasError('required')) {
+      return 'Password is required';
+    }
+    // @ts-ignore
+    if (passwordControl.hasError('passwordStrength')) {
+      return 'Password must contain at least one lowercase letter, one uppercase letter, one digit, and one special character, with a minimum length of 8 characters.';
+    }
+
+    return '';
   }
 }
