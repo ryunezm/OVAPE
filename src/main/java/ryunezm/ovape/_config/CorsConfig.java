@@ -1,4 +1,4 @@
-package ryunezm.ovape.config;
+package ryunezm.ovape._config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

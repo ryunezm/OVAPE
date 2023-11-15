@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import ryunezm.ovape.user.models.Role;
 import ryunezm.ovape.user.models.User;
 import ryunezm.ovape.user.repositories.UserRepository;
-import ryunezm.ovape.config.JwtService;
-import ryunezm.ovape.exceptions.EmailAlreadyExistsException;
+import ryunezm.ovape._config.JwtService;
+import ryunezm.ovape._exceptions.EmailAlreadyExistsException;
 
 @Service
 @RequiredArgsConstructor

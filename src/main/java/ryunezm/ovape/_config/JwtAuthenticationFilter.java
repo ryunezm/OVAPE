@@ -1,4 +1,4 @@
-package ryunezm.ovape.config;
+package ryunezm.ovape._config;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

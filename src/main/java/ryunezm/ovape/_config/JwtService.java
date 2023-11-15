@@ -1,4 +1,4 @@
-package ryunezm.ovape.config;
+package ryunezm.ovape._config;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
