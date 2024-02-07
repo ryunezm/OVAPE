@@ -25,9 +25,9 @@ import {MatCardModule} from "@angular/material/card";
 import {MatListModule} from "@angular/material/list";
 import {MatStepperModule} from "@angular/material/stepper";
 import {NgOptimizedImage} from "@angular/common";
-import { CardComponent } from './components/base/card/card.component';
+import {CardComponent} from './components/base/card/card.component';
 import {MatTooltipModule} from "@angular/material/tooltip";
-import { LeftpanelComponent } from './components/base/leftpanel/leftpanel.component';
+import {LeftpanelComponent} from './components/base/leftpanel/leftpanel.component';
 
 @NgModule({
   declarations: [
@@ -42,27 +42,27 @@ import { LeftpanelComponent } from './components/base/leftpanel/leftpanel.compon
     CardComponent,
     LeftpanelComponent,
   ],
-    imports: [
-        MatButtonModule,
-        MatToolbarModule,
-        BrowserModule,
-        AppRoutingModule,
-        BrowserAnimationsModule,
-        FormsModule,
-        MatIconModule,
-        MatInputModule,
-        MatMenuModule,
-        ReactiveFormsModule,
-        HttpClientModule,
-        MatSelectModule,
-        MatRadioModule,
-        MatSnackBarModule,
-        MatCardModule,
-        MatListModule,
-        MatStepperModule,
-        NgOptimizedImage,
-        MatTooltipModule
-    ],
+  imports: [
+    MatButtonModule,
+    MatToolbarModule,
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MatIconModule,
+    MatInputModule,
+    MatMenuModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    MatSelectModule,
+    MatRadioModule,
+    MatSnackBarModule,
+    MatCardModule,
+    MatListModule,
+    MatStepperModule,
+    NgOptimizedImage,
+    MatTooltipModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
