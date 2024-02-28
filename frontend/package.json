@@ -33,6 +33,7 @@
     "@angular/cli": "~17.1.2",
     "@angular/compiler-cli": "^17.1.2",
     "@types/jasmine": "~4.3.0",
+    "browser-sync": "^3.0.2",
     "copy-webpack-plugin": "^11.0.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
