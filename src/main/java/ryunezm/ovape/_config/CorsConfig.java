@@ -9,8 +9,11 @@ import org.springframework.web.filter.CorsFilter;
 import java.util.Arrays;
 import java.util.List;
 
+// Configuration for Cross-Origin Resource Sharing (CORS)
 @Configuration
 public class CorsConfig {
+
+    // Bean to create a CORS filter
     @Bean
     CorsFilter corsFilter() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();

@@ -11,15 +11,17 @@ import ryunezm.ovape.user.repositories.UserRepository;
 import ryunezm.ovape._config.JwtService;
 import ryunezm.ovape._exceptions.EmailAlreadyExistsException;
 
+// Service for authentication operations
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
 
-    private final UserRepository repository;
-    private final PasswordEncoder passwordEncoder;
-    private final JwtService jwtService;
-    private final AuthenticationManager authenticationManager;
+    private final UserRepository repository; // User repository
+    private final PasswordEncoder passwordEncoder; // Password encoder
+    private final JwtService jwtService; // JWT service
+    private final AuthenticationManager authenticationManager; // Authentication manager
 
+    // Registers a new user
     public AuthenticationResponse register(RegisterRequest request) {
 
         if (repository.existsByEmail(request.getEmail())) {
@@ -45,6 +47,7 @@ public class AuthenticationService {
                 .build();
     }
 
+    // Authenticates a user
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
         authenticationManager
                 .authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword())

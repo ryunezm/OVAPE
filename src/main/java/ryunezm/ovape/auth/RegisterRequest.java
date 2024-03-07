@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import ryunezm.ovape.auth.validators.ValidEmail;
 
+// Data class for registration requests
 @Data
 @Builder
 @AllArgsConstructor

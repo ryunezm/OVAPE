@@ -13,18 +13,22 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import ryunezm.ovape.user.repositories.UserRepository;
 
+// Application configuration for Spring Security
 @Configuration
 @RequiredArgsConstructor
 public class ApplicationConfig {
 
+    // User repository
     private final UserRepository userRepository;
 
+    // Bean to provide user details service
     @Bean
     public UserDetailsService userDetailsService() {
         return username -> userRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found!"));
     }
 
+    // Bean to provide authentication provider
     @Bean
     public AuthenticationProvider authenticationProvider(){
         DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
@@ -34,11 +38,13 @@ public class ApplicationConfig {
         return authenticationProvider;
     }
 
+    // Bean to retrieve authentication manager
     @Bean
     public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
 
+    // Bean to provide password encoder
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
