@@ -10,18 +10,9 @@ $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
   align-items: $align-items
   justify-content: $justify-content
 
-#title
-  position: absolute
-  top: 21%
-  left: 25%
-  font-size: 4vh
+.title
+  font-family: "Source Sans 3",sans-serif
   font-weight: bold
-
-#line
-  position: relative
-  top: -5%
-  border: 1px solid #cccccc
-  width: 99%
 
 #login-form
   @include flexbox(column)
@@ -30,23 +21,11 @@ $box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
   top: 0
   border: 0 solid green
   border-radius: $border-radius
-  height: 40vh
-
-mat-form-field
-  width: 20vw
-  min-height: 8vh
-
-#username, #password
-  font-size: 2.5vh
 
 button[mat-flat-button]
   width: 100%
   min-height: 15%
   margin-top: 2vh
-  font-size: 2.5vh
-
-mat-label
-  font-size: 1vmax
 
 // Horizontal layout of login and register links
 .link-container
@@ -61,4 +40,4 @@ mat-label
 a[mat-button]
   border: 1px #cccccc dashed
   margin-top: 2vh
-  font-size: 2.5vh
+

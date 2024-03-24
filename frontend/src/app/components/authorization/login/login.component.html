@@ -1,27 +1,33 @@
 <app-card>
-  <h2 id="title">LOG IN</h2>
-  <div id="line"></div>
-  <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" id="login-form">
+  <mat-card class="container">
+    <mat-card-header>
+      <mat-card-title class="title">LOGIN</mat-card-title>
+    </mat-card-header>
 
-    <!--Username field-->
-    <mat-form-field appearance="outline">
-      <mat-label for="username">Username</mat-label>
-      <input formControlName="username" id="username" matInput name="username" required type="text">
-    </mat-form-field>
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" [formGroup]="loginForm" id="login-form">
 
-    <!--Password field-->
-    <mat-form-field appearance="outline">
-      <mat-label for="password">Password</mat-label>
-      <input formControlName="password" id="password" matInput name="password" required type="password">
-    </mat-form-field>
+        <!--Username field-->
+        <mat-form-field appearance="outline">
+          <mat-label for="username">Username</mat-label>
+          <input formControlName="username" id="username" matInput name="username" required type="text">
+        </mat-form-field>
 
-    <!--Login button-->
-    <button color="primary" mat-flat-button type="submit">Log in</button>
+        <!--Password field-->
+        <mat-form-field appearance="outline">
+          <mat-label for="password">Password</mat-label>
+          <input formControlName="password" id="password" matInput name="password" required type="password">
+        </mat-form-field>
 
-    <!--Forgot and register-->
-    <div class="link-container">
-      <a mat-button> Forgot password? </a>
-      <a class="register-link" mat-button routerLink="/register">Register</a>
-    </div>
-  </form>
+        <!--Login button-->
+        <button color="primary" mat-flat-button type="submit">Log in</button>
+
+        <!--Forgot and register-->
+        <div class="link-container">
+          <a mat-button> Forgot password? </a>
+          <a class="register-link" mat-button routerLink="/register">Register</a>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </app-card>

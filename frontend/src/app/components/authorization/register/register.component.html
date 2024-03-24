@@ -1,77 +1,86 @@
 <app-card>
-  <h2 id="title">REGISTER</h2>
-  <div id="line"></div>
-  <form (ngSubmit)="onSubmit()" id="register-form">
-    <mat-vertical-stepper [linear]="isLinear">
-      <mat-step [stepControl]="firstFormGroup">
-        <form [formGroup]="firstFormGroup">
-          <div id="firstFormGroup">
-            <ng-template matStepLabel>Fill out your personal information</ng-template>
-            <mat-form-field>
-              <input formControlName="first_name"
-                     [matTooltip]="firstFormGroup.get('first_name')?.hasError('pattern') ? 'Invalid character(s)' : ''"
-                     placeholder="First name"
-                     matInput>
-            </mat-form-field>
-            <mat-form-field>
-              <input formControlName="last_name"
-                     [matTooltip]="firstFormGroup.get('last_name')?.hasError('pattern') ? 'Invalid character(s)' : ''"
-                     placeholder="Last name"
-                     matInput>
-            </mat-form-field>
-          </div>
-          <div>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="secondFormGroup">
-        <form [formGroup]="secondFormGroup">
-          <ng-template matStepLabel>Fill out your email address</ng-template>
-          <mat-form-field>
-            <input formControlName="email" matInput placeholder="Email address">
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="thirdFormGroup">
-        <form [formGroup]="thirdFormGroup">
-          <ng-template matStepLabel>Fill out information about the semester in which you took the class</ng-template>
-          <mat-form-field appearance="fill">
-            <mat-label>Year</mat-label>
-            <mat-select formControlName="yearControl">
-              <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <mat-form-field appearance="fill">
-            <mat-label>Semester</mat-label>
-            <mat-select formControlName="semester">
-              <mat-option value="1">1</mat-option>
-              <mat-option value="2">2</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button matStepperNext>Next</button>
-          </div>
-        </form>
-      </mat-step>
-      <mat-step [stepControl]="fourthFormGroup">
-        <form [formGroup]="fourthFormGroup">
-          <ng-template matStepLabel>Fill out your password</ng-template>
-          <mat-form-field>
-            <input formControlName="password" matInput placeholder="Password" type="password"
-                   [matTooltip]="passwordTooltip()" matTooltipPosition="above">
-          </mat-form-field>
-          <div>
-            <button mat-button matStepperPrevious>Back</button>
-            <button mat-button>Submit</button>
-          </div>
-        </form>
-      </mat-step>
-    </mat-vertical-stepper>
-  </form>
+  <mat-card class="container">
+    <mat-card-header>
+      <mat-card-title class="title">REGISTER</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+      <form (ngSubmit)="onSubmit()" id="register-form">
+        <mat-vertical-stepper [linear]="isLinear">
+          <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+              <div id="firstFormGroup">
+                <ng-template matStepLabel>Fill out your personal information</ng-template>
+                <mat-form-field>
+                  <input formControlName="first_name"
+                         [matTooltip]="firstFormGroup.get('first_name')?.hasError('pattern') ? 'Invalid character(s)' : ''"
+                         placeholder="First name"
+                         matInput>
+                </mat-form-field>
+                <mat-form-field>
+                  <input formControlName="last_name"
+                         [matTooltip]="firstFormGroup.get('last_name')?.hasError('pattern') ? 'Invalid character(s)' : ''"
+                         placeholder="Last name"
+                         matInput>
+                </mat-form-field>
+              </div>
+              <div>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+              <ng-template matStepLabel>Fill out your email address</ng-template>
+              <mat-form-field>
+                <input formControlName="email" matInput placeholder="Email address">
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="thirdFormGroup">
+            <form [formGroup]="thirdFormGroup">
+              <ng-template matStepLabel>Fill out information about the semester in which you took the class</ng-template>
+              <mat-form-field appearance="fill">
+                <mat-label>Year</mat-label>
+                <mat-select formControlName="yearControl">
+                  <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Semester</mat-label>
+                <mat-select formControlName="semester">
+                  <mat-option value="1">1</mat-option>
+                  <mat-option value="2">2</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button matStepperNext>Next</button>
+              </div>
+            </form>
+          </mat-step>
+          <mat-step [stepControl]="fourthFormGroup">
+            <form [formGroup]="fourthFormGroup">
+              <ng-template matStepLabel>Fill out your password</ng-template>
+              <mat-form-field>
+                <input formControlName="password" matInput placeholder="Password" type="password"
+                       [matTooltip]="passwordTooltip()" matTooltipPosition="above">
+              </mat-form-field>
+              <div>
+                <button mat-button matStepperPrevious>Back</button>
+                <button mat-button>Submit</button>
+              </div>
+            </form>
+          </mat-step>
+        </mat-vertical-stepper>
+      </form>
+    </mat-card-content>
+
+
+  </mat-card>
+
 </app-card>
