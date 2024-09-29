@@ -1,0 +1,9 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="OVAPE App" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="OVAPE" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="ryunezm.ovape.OvapeApplication" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
