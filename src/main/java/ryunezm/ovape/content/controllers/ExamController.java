@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import ryunezm.ovape.content.models.Question;
 import ryunezm.ovape.content.models.Module;
+import ryunezm.ovape.content.models.Question;
 import ryunezm.ovape.content.services.ExamService;
 import ryunezm.ovape.content.services.ModuleService;
 
@@ -31,7 +31,7 @@ public class ExamController {
             @RequestParam Long moduleId,
             @RequestParam int numberOfQuestions) {
         Module module = moduleService.getModuleById(moduleId);
-                List<Question> examQuestions = examService.generateExamQuestions(module, numberOfQuestions);
+        List<Question> examQuestions = examService.generateExamQuestions(module, numberOfQuestions);
 
         return new ResponseEntity<>(examQuestions, HttpStatus.OK);
     }
