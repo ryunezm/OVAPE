@@ -5,11 +5,11 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import ryunezm.ovape._config.JwtService;
+import ryunezm.ovape._exceptions.EmailAlreadyExistsException;
 import ryunezm.ovape.user.models.Role;
 import ryunezm.ovape.user.models.User;
 import ryunezm.ovape.user.repositories.UserRepository;
-import ryunezm.ovape._config.JwtService;
-import ryunezm.ovape._exceptions.EmailAlreadyExistsException;
 
 // Service for authentication operations
 @Service

@@ -36,14 +36,19 @@ public class SecurityConfig {
         httpSecurity
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> {
-                    auth.requestMatchers(new AntPathRequestMatcher("/auth/**")).permitAll();
-                    auth.anyRequest().authenticated();
-                }
+                            auth
+                                    .requestMatchers(new AntPathRequestMatcher("/auth/**"))
+                                    .permitAll();
+
+                            auth
+                                    .anyRequest()
+                                    .authenticated();
+                        }
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-                //.formLogin(Customizer.withDefaults());
+        //.formLogin(Customizer.withDefaults());
 
         return httpSecurity.build();
     }
